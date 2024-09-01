@@ -104,7 +104,7 @@ getgenv().ExunysDeveloperAimbot = {
 		WallCheck = false,
 
 		OffsetToMoveDirection = false,
-		OffsetIncrement = 0,
+		OffsetIncrement = 1,
 
 		Sensitivity = 0, -- Animation length (in seconds) before fully locking onto target
 		Sensitivity2 = 3.5, -- mousemoverel Sensitivity
@@ -272,7 +272,7 @@ local Load = function()
 		if Running and Settings.Enabled then
 			GetClosestPlayer()
 
-			Offset = OffsetToMoveDirection and __index(FindFirstChildOfClass(__index(Environment.Locked, "Character"), "Humanoid"), "MoveDirection") * Vector3zero
+			Offset = OffsetToMoveDirection and __index(FindFirstChildOfClass(__index(Environment.Locked, "Character"), "Humanoid"), "MoveDirection") * (mathclamp(Settings.OffsetIncrement, 1, 10) / 10) or Vector3zero
 
 			if Environment.Locked then
 				local LockedPosition_Vector3 = __index(__index(Environment.Locked, "Character")[LockPart], "Position")
