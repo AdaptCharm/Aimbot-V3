@@ -113,7 +113,7 @@ getgenv().ExunysDeveloperAimbot = {
 		LockPart = "Body", -- Body part to lock on
 
 		TriggerKey = Enum.KeyCode.Q,
-		Toggle = true
+		Toggle = false
 	},
 
 	FOVSettings = {
