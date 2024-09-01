@@ -110,7 +110,7 @@ getgenv().ExunysDeveloperAimbot = {
 		Sensitivity2 = 3.5, -- mousemoverel Sensitivity
 
 		LockMode = 1, -- 1 = CFrame; 2 = mousemoverel
-		LockPart = "Torso", -- Body part to lock on
+		LockPart = "Head", -- Body part to lock on
 
 		TriggerKey = Enum.KeyCode.P,
 		Toggle = true
@@ -313,12 +313,13 @@ local Load = function()
 					CancelLock()
 				end
 			else
-				Running = true
+				--// Running = true
 			end
 		end
 	end)
 
 	ServiceConnections.InputEndedConnection = Connect(__index(UserInputService, "InputEnded"), function(Input)
+		--[[
 		local TriggerKey, Toggle = Settings.TriggerKey, Settings.Toggle
  
 		if Toggle or Typing then
@@ -329,6 +330,7 @@ local Load = function()
 			Running = false
 			CancelLock()
 		end
+		]]
 	end)
 end
 
