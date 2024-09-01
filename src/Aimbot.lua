@@ -104,7 +104,7 @@ getgenv().ExunysDeveloperAimbot = {
 		WallCheck = false,
 
 		OffsetToMoveDirection = false,
-		OffsetIncrement = 15,
+		OffsetIncrement = 0,
 
 		Sensitivity = 0, -- Animation length (in seconds) before fully locking onto target
 		Sensitivity2 = 3.5, -- mousemoverel Sensitivity
@@ -112,8 +112,8 @@ getgenv().ExunysDeveloperAimbot = {
 		LockMode = 1, -- 1 = CFrame; 2 = mousemoverel
 		LockPart = "Head", -- Body part to lock on
 
-		TriggerKey = Enum.KeyCode.P,
-		Toggle = true
+		TriggerKey = Enum.KeyCode.Q,
+		Toggle = false
 	},
 
 	FOVSettings = {
@@ -313,13 +313,12 @@ local Load = function()
 					CancelLock()
 				end
 			else
-				--// Running = true
+				Running = true
 			end
 		end
 	end)
 
 	ServiceConnections.InputEndedConnection = Connect(__index(UserInputService, "InputEnded"), function(Input)
-		--[[
 		local TriggerKey, Toggle = Settings.TriggerKey, Settings.Toggle
  
 		if Toggle or Typing then
@@ -330,7 +329,6 @@ local Load = function()
 			Running = false
 			CancelLock()
 		end
-		]]
 	end)
 end
 
